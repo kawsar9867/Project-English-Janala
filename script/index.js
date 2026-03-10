@@ -28,7 +28,7 @@ const removeActive = () => {
 };
 
 const loadLevelWord = (id) => {
-   manageSpinner(true);
+  manageSpinner(true);
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -46,6 +46,21 @@ const loadWordDetail = async (id) => {
   const details = await res.json();
   displayWordDetails(details.data);
 };
+
+document.getElementById("btn-search").addEventListener('click', () => {
+  removeActive();
+  const input = document.getElementById("input-search");
+  const searchValue = input.value.trim().toLowerCase();
+  fetch("https://openapi.programming-hero.com/api/words/all")
+    .then((res) => res.json())
+    .then((data) => {
+      const allWords = data.data;
+      const filterWords = allWords.filter((word) =>
+        word.word.toLowerCase().includes(searchValue),
+      );
+      displayLevelWord(filterWords);
+    });
+});
 
 const displayWordDetails = (word) => {
   const detailsBox = document.getElementById("detail-container");

@@ -135,7 +135,6 @@ const displayLevelWord = (words) => {
   }
 
   words.forEach((word) => {
-    // console.log(word);
     const wordBox = document.createElement("div");
     wordBox.innerHTML = `
          <div class="bg-white rounded-xl shadow-sm text-center px-5 py-10 space-y-4">
@@ -158,8 +157,8 @@ const displayLesson = (lessons) => {
   for (let lesson of lessons) {
     const btnDiv = document.createElement("div");
     btnDiv.innerHTML = `
-         <button id="lesson-btn-${lesson.level_no}" onclick = "loadLevelWord(${lesson.level_no})" class="btn btn-outline btn-primary lesson-btn"
-                  ><i class="fa-brands fa-leanpub"></i>Lesson - ${lesson.level_no}</button>
+         <button id="lesson-btn-${lesson.level_no}" onclick = "loadLevelWord(${lesson.level_no})" class="btn btn-outline btn-info lesson-btn"
+                  ><i class="fa-solid fa-book-open"></i> </i>Lesson - ${lesson.level_no}</button>
          `;
     levelContainer.append(btnDiv);
   }

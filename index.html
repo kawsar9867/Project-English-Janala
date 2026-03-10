@@ -31,49 +31,41 @@
   </head>
   <body>
     <!-- Nav-Bar -->
-    <header>
-      <div class="navbar bg-base-100 shadow-sm">
-        <div class="navbar-start">
-          <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabindex="-1"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a href="" class=""
-                  ><i class="fa-solid fa-circle-question"></i>FAQ</a
-                >
-              </li>
-              <li>
-                <a href="" class=""
-                  ><i class="fa-brands fa-leanpub"></i>Learn</a
-                >
-              </li>
-              <li>
-                <a href="" class=""
-                  ><i class="fa-solid fa-arrow-right-from-bracket"></i>Exit</a
-                >
-              </li>
-            </ul>
-          </div>
+      <header  class="bg-[#EDF6FF] sticky top-0 shadow-sm z-50">
+        <div class="navbar lg:w-11/12 mx-auto">
+          <div class="navbar-start">
+          <div>
+        <div class="dropdown">
+         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </div>
+
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-30 p-2 shadow space-y-2"><li>
+                        <a href="" class="btn btn-outline btn-info">
+                            <i class="fa-solid fa-circle-question"></i> FAQ
+                        </a>
+                        </li>
+                        <li>
+                        <a href="" class="btn btn-outline btn-info">
+                            <i class="fa-solid fa-book-open"></i> Learn
+                        </a>
+                        </li>
+                        <li>
+                        <a href="" class="btn btn-outline btn-info">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                        </a>
+                        </li>
+
+                    </ul>
+                    </div>
+                </div>
           <a href="" class="flex items-center gap-1">
-            <span class="text-lg font-bold">English</span>
+            <span class="text-[20px] font-bold">English</span>
             <img src="img/logo.png" alt="Nav-logo" />
             <span class="font-bangla text-lg font-semibold">জানালা</span>
           </a>
@@ -81,33 +73,32 @@
         <div class="navbar-end hidden lg:flex">
           <ul class="menu menu-horizontal px-1 space-x-4">
             <li>
-              <a href="" class="btn btn-outline btn-primary"
+              <a href="" class="btn btn-outline btn-info"
                 ><i class="fa-solid fa-circle-question"></i>FAQ</a
               >
             </li>
             <li>
-              <a href="" class="btn btn-outline btn-primary"
+              <a href="" class="btn btn-outline btn-info"
                 ><i class="fa-brands fa-leanpub"></i>Learn</a
               >
             </li>
             <li>
-              <a href="" class="btn btn-outline btn-primary"
+              <a href="" class="btn btn-outline btn-info"
                 ><i class="fa-solid fa-arrow-right-from-bracket"></i>Exit</a
               >
             </li>
           </ul>
         </div>
-      </div>
-    </header>
+      </header>
     <!-- text & banner photo -->
     <section
-      class="content flex gap-5 justify-between items-center py-5 w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2"
+     class="w-11/12  mx-auto flex flex-col-reverse md:flex-row text-center md:text-start items-center justify-between gap-10 py-5"
     >
-      <div class="flex-1">
-        <h2 class="text-4xl font-bold mb-8">
+      <div class="flex-1 ">
+        <h2 class="text-4xl font-bold mb-2">
           <span class="text-blue-400">English</span> is Easy!!
         </h2>
-        <p class="font-bangla">
+        <p class="font-bangla text-[24px] font-medium">
           আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
           আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে
           অন্য একটি Level এ
@@ -126,14 +117,14 @@
             <input
               type="password"
               required
-              placeholder="Enter Your Password"
+              placeholder="********"
               minlength="8"
               maxlength="8"
             />
           </label>
 
           <br />
-          <button class="btn btn-success">Get Started</button>
+          <button class="btn bg-blue-400 text-white ">Get Started</button>
         </div>
       </div>
       <div class="flex-1">
@@ -160,7 +151,7 @@
           </label>
           
         </div>
-        <button id="btn-search" class="btn btn-primary join-item">
+        <button id="btn-search" class="btn bg-blue-400 text-white join-item">
           Search
         </button>
       </div>

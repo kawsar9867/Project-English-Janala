@@ -6,6 +6,38 @@ const createElement = (arr) => {
   return htmlElements.join(" ");
 };
 
+let voices = [];
+
+// যখন voices load হবে তখন list update হবে
+speechSynthesis.onvoiceschanged = () => {
+  voices = speechSynthesis.getVoices();
+};
+
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-US";
+
+  if (voices.length === 0) {
+    voices = speechSynthesis.getVoices();
+  }
+
+  // Normal female voice selection
+  const normalFemaleVoice =
+    voices.find(v => v.name.includes("Samantha")) ||         // Mac OS default female
+    voices.find(v => v.name.includes("Zira")) ||             // Windows default female
+    voices.find(v => v.name.includes("Google US English")) || // Google default female
+    voices[0];                                              // fallback
+
+  utterance.voice = normalFemaleVoice;
+
+  // Normal speed & pitch
+  utterance.rate = 1;   // normal speed
+  utterance.pitch = 1;  // normal pitch
+  utterance.volume = 1; // full volume
+
+  speechSynthesis.speak(utterance);
+}
+
 const manageSpinner = (status) => {
   if (status == true) {
     document.getElementById("spinner").classList.remove("hidden");
@@ -112,7 +144,7 @@ const displayLevelWord = (words) => {
         <div class="text-xl font-semibold  font-bangla">"${word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"}/ ${word.pronunciation ? word.pronunciation : "শব্দের উচ্চারণ পাওয়া যায়নি"}"</div>
         <div class="flex justify-between items-center">
           <button onclick="loadWordDetail(${word.id})" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
-          <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high"></i></button>
+          <button onclick="pronounceWord('${word.word}')" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high"></i></button>
         </div>
       </div>
     `;

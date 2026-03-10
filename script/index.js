@@ -101,13 +101,16 @@ const displayWordDetails = (word) => {
     <!-- Card -->
     <div class="p-6 border border-sky-200 rounded-xl shadow-lg bg-white space-y-4 relative">
         <!-- Word Header -->
-        <h1 class="font-bold text-3xl font-bangla flex items-center gap-3">
-            ${word.word} 
-            <span class="text-blue-500">
-                <i class="fa-solid fa-microphone-lines"></i> : ${word.pronunciation}
-            </span>
-        </h1>
-
+        <h1 class="font-bold text-3xl font-bangla flex items-center gap-3 flex-wrap">
+    ${word.word}
+    <span class="text-blue-500 flex items-center gap-1">
+        <span class="hidden md:inline-flex">
+            <i class="fa-solid fa-microphone-lines"></i>
+        </span>
+        <span>:</span>
+        <span>${word.pronunciation}</span>
+    </span>
+</h1>
         <!-- Meaning -->
         <div>
             <p class="font-semibold text-lg">Meaning</p>

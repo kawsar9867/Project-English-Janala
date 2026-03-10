@@ -97,23 +97,50 @@ document.getElementById("btn-search").addEventListener('click', () => {
 const displayWordDetails = (word) => {
   const detailsBox = document.getElementById("detail-container");
   detailsBox.innerHTML = `
-    <div class= "">
-            <h2 class="text-2xl font-bold text-blue-400 ">
-            ${word.word}(<i class="fa-solid fa-microphone-lines"></i> :${word.pronunciation})
-            </h2>
-          </div>
-          <div>
-            <h2 class="font-bold text-gray-400">Meaning</h2>
-            <p class="font-bangla text-green-400 ">${word.meaning}</p>
-          </div>
-          <div>
-            <h2 class="font-bold text-gray-400">Example</h2>
-            <p class="text-green-400 ">${word.sentence}</p>
-          </div>
-          <div>
-            <h2 class="font-bold text-gray-400">Synonym</h2>
-         <div class="">${createElement(word.synonyms)}</div>
-       </div>
+    <div class="relative max-w-xl mx-auto mt-5">
+    <!-- Card -->
+    <div class="p-6 border border-sky-200 rounded-xl shadow-lg bg-white space-y-4 relative">
+        <!-- Word Header -->
+        <h1 class="font-bold text-3xl font-bangla flex items-center gap-3">
+            ${word.word} 
+            <span class="text-blue-500">
+                <i class="fa-solid fa-microphone-lines"></i> : ${word.pronunciation}
+            </span>
+        </h1>
+
+        <!-- Meaning -->
+        <div>
+            <p class="font-semibold text-lg">Meaning</p>
+            <p class="font-bangla mt-1 text-gray-700">
+                ${word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"}
+            </p>
+        </div>
+
+        <!-- Parts of Speech -->
+        <div>
+            <p class="font-semibold text-lg mt-4">Parts of Speech</p>
+            <p class="text-gray-700 mt-1">${word.partsOfSpeech}</p>
+        </div>
+
+        <!-- Example -->
+        <div>
+            <p class="font-semibold text-lg mt-4">Example</p>
+            <p class="text-gray-700 mt-1">${word.sentence}</p>
+        </div>
+
+        <!-- Synonyms -->
+        <div>
+            <p class="font-bangla font-semibold text-lg mt-4">সমার্থক শব্দগুলো</p>
+            <div class="flex flex-wrap gap-2 mt-2 ">
+                ${word.synonyms.map(syn => `
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium hover:shadow-md">
+                        ${syn}
+                    </span>
+                `).join('')}
+            </div>
+        </div>
+    </div>
+</div>
   `;
   document.getElementById("word_modal").showModal();
 };

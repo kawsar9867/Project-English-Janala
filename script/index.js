@@ -137,7 +137,7 @@ const displayLevelWord = (words) => {
   words.forEach((word) => {
     const wordBox = document.createElement("div");
     wordBox.innerHTML = `
-         <div class="bg-white rounded-xl shadow-sm text-center px-5 py-10 space-y-4">
+         <div class="bg-white rounded-xl shadow-sm text-center px-5 py-10 space-y-4 transform transition duration-300 hover:-translate-y-2 hover:shadow-lg">
         <h2 class="font-bold text-2xl">${word.word ? word.word : "শব্দ পাওয়া যায়নি"}</h2>
         <p class="font-semibold">Meaning /Pronounciation</p>
         <div class="text-xl font-semibold  font-bangla">"${word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"}/ ${word.pronunciation ? word.pronunciation : "শব্দের উচ্চারণ পাওয়া যায়নি"}"</div>
